@@ -1,0 +1,36 @@
+<html lang="en" ng-app="codenames">
+	<head>
+		<link rel="stylesheet" href="board.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.js"
+			integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+			crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+		<script src="GameController.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="angular-modal-service.min.js"></script>
+	</head>
+	<body ng-controller="GameController">
+		<div class="sideMenu">
+			<div class="codenames-logo"></div>
+			<div class="agent-select red-agent" ng-class="{agentselected: colorSelected === 'RED'}" ng-click="changeColor('RED')"></div>
+			<div class="agent-select blue-agent" ng-class="{agentselected: colorSelected === 'BLUE'}" ng-click="changeColor('BLUE')"></div>
+			<div class="agent-select civilian1" ng-class="{agentselected: colorSelected === 'CIV'}" ng-click="changeColor('CIV')"></div>
+			<div class="agent-select assassin" ng-class="{agentselected: colorSelected ===
+			'ASSASSIN'}" ng-click="changeColor('ASSASSIN')"></div>
+			<div id="timerBar" ng-class="{timerRunning: timerRunning, timeOut: timeOut}"><div id="timerJuice"></div></div>
+			<div class="side-link" id="startTimer" ng-click="startTimer()">Start</div>
+			<div class="side-link" id="stopTimer" ng-click="stopTimer()">Stop</div>
+			<p id="spymasterCard" class="side-link" ng-click="openSpymasterCard()">Spymaster Card</p>
+			<p class="side-link" ng-click="showComplex()">Custom Words...</p>
+		</div>
+
+		<div class="board">
+			<div ng-repeat="card in cards">
+				<codenames-card content=card></codenames-card>
+			</div>
+		</div>
+	</body>
+</html>
+
