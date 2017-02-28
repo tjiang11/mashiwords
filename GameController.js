@@ -68,13 +68,10 @@ codenames.controller('GameController', ['$scope', 'ModalService', 'colorTrackerS
 					title: "Custom Words"
 		      	}
 		    }).then(function(modal) {
-				console.log("HUH");
-				console.log(modal);
 				modal.element.modal();
 				modal.close.then(function(result) {
 					customWordService.extractWords(function(customWords) {
 						$scope.cards = [];
-						console.log(customWords);
 						var numCards = 25;
 						var wordsDict = {};
 						while (numCards > 0) {
@@ -88,6 +85,18 @@ codenames.controller('GameController', ['$scope', 'ModalService', 'colorTrackerS
 						$scope.$apply();
 					});
 				});
+			});
+		};
+
+		$scope.showInfo = function() {
+			ModalService.showModal({
+				templateUrl: "info-modal.html",
+				controller: "InfoController",
+				inputs: {
+					title: "How to Play"
+				}
+			}).then(function(modal) {
+				modal.element.modal();
 			});
 		};
 
@@ -126,29 +135,26 @@ codenames.controller('GameController', ['$scope', 'ModalService', 'colorTrackerS
 codenames.controller('ComplexController', [
 	'$scope', '$element', 'title', 'close', 'customWordService',
 	function($scope, $element, title, close, customWordService) {
+		$scope.name = null;
+		$scope.age = null;
+		$scope.title = title;
+		$scope.customWordService = customWordService;
+	  
+		$scope.close = function() {
+	 		close({
+	    	name: $scope.name,
+	    	age: $scope.age
+	    	}, 500);
+		};
 
-	$scope.name = null;
-	$scope.age = null;
-	$scope.title = title;
-	$scope.customWordService = customWordService;
-  
-	//  This close function doesn't need to use jQuery or bootstrap, because
-	//  the button has the 'data-dismiss' attribute.
-	$scope.close = function() {
- 		close({
-    	name: $scope.name,
-    	age: $scope.age
-    	}, 500); // close, but give 500ms for bootstrap to animate
-	};
+	  	$scope.cancel = function() {
+	    	$element.modal('hide');
+	  	};
+	}
+]);
 
-  //  This cancel function must use the bootstrap, 'modal' function because
-  //  the doesn't have the 'data-dismiss' attribute.
-  	$scope.cancel = function() {
-
-    //  Manually hide the modal.
-    	$element.modal('hide');
-  	};
-}]);
+codenames.controller('InfoController', [function() {}
+]);
 
 codenames.component('codenamesCard', {
     templateUrl: 'codenames_card.html',

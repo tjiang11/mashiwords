@@ -2,28 +2,12 @@ var spymaster = angular.module('spymaster', []);
 
 spymaster.controller('SpymasterController', ['$scope',
 	function SpymasterController($scope) {
-		// var POSITIONS = [
-		// 	{x: 32.8, y: 32}, {x: 59.5, y: 32}, {x: 86, y: 32}, {x: 113, y: 32}, {x: 139.6, y: 32},
-		// 	{x: 32.8, y: 59}, {x: 59.5, y: 59}, {x: 86, y: 59}, {x: 113, y: 59}, {x: 139.6, y: 59},
-		// 	{x: 32.8, y: 86}, {x: 59.5, y: 86}, {x: 86, y: 86}, {x: 113, y: 86}, {x: 139.6, y: 86},
-		// 	{x: 32.8, y: 112.5}, {x: 59.5, y: 112.5}, {x: 86, y: 112.5}, {x: 113, y: 112.5}, {x: 139.6, y: 112.5},
-		// 	{x: 32.8, y: 139}, {x: 59.5, y: 139}, {x: 86, y: 139}, {x: 113, y: 139}, {x: 139.6, y: 139}
-		// ];
-
-		// var POSITIONS = [
-		// 	{x: 136, y: 130}, {x: 243, y: 130}, {x: 349, y: 130}, {x: 456, y: 130}, {x: 563, y: 130},
-		// 	{x: 136, y: 237}, {x: 243, y: 237}, {x: 349, y: 237}, {x: 456, y: 237}, {x: 563, y: 237},
-		// 	{x: 136, y: 344}, {x: 243, y: 344}, {x: 349, y: 344}, {x: 456, y: 344}, {x: 563, y: 344},
-		// 	{x: 136, y: 449}, {x: 243, y: 449}, {x: 349, y: 449}, {x: 456, y: 449}, {x: 563, y: 449},
-		// 	{x: 136, y: 559}, {x: 243, y: 559}, {x: 349, y: 557}, {x: 456, y: 559}, {x: 563, y: 559}
-		// ];
-
 		var POSITIONS = [
-			{x: 201, y: 216}, {x: 277, y: 216}, {x: 352, y: 216}, {x: 429, y: 216}, {x: 504, y: 216},
-			{x: 201, y: 290}, {x: 277, y: 290}, {x: 352, y: 290}, {x: 429, y: 290}, {x: 504, y: 290},
-			{x: 201, y: 367}, {x: 277, y: 367}, {x: 352, y: 367}, {x: 429, y: 367}, {x: 504, y: 367},
-			{x: 201, y: 444}, {x: 277, y: 444}, {x: 352, y: 444}, {x: 429, y: 444}, {x: 504, y: 444},
-			{x: 201, y: 519}, {x: 277, y: 519}, {x: 352, y: 517}, {x: 429, y: 519}, {x: 504, y: 519}
+			{x: 255, y: 460}, {x: 348, y: 460}, {x: 442, y: 460}, {x: 535, y: 460}, {x: 630, y: 460},
+			{x: 255, y: 553}, {x: 348, y: 553}, {x: 442, y: 553}, {x: 535, y: 553}, {x: 630, y: 553},
+			{x: 255, y: 646}, {x: 348, y: 646}, {x: 442, y: 646}, {x: 535, y: 646}, {x: 630, y: 646},
+			{x: 255, y: 741}, {x: 348, y: 741}, {x: 442, y: 741}, {x: 535, y: 741}, {x: 630, y: 741},
+			{x: 255, y: 835}, {x: 348, y: 835}, {x: 442, y: 835}, {x: 535, y: 835}, {x: 630, y: 835}
 		];
 
 		var placeColors = function() {
@@ -70,7 +54,7 @@ spymaster.controller('SpymasterController', ['$scope',
 			for (var i = 0; i < colors.length; i++) {
 				var position = POSITIONS[i];
 				if (colors[i] === 'red') {
-					ctx.drawImage(imgRed, position.x, position.y, 80, 76);
+					ctx.drawImage(imgRed, position.x, position.y, 94, 90);
 				}
 			}
 		};
@@ -78,7 +62,7 @@ spymaster.controller('SpymasterController', ['$scope',
 			for (var i = 0; i < colors.length; i++) {
 				var position = POSITIONS[i];
 				if (colors[i] === 'blue') {
-					ctx.drawImage(imgBlue, position.x, position.y, 80, 76);
+					ctx.drawImage(imgBlue, position.x, position.y, 94, 90);
 				}
 			}
 		};
@@ -86,7 +70,7 @@ spymaster.controller('SpymasterController', ['$scope',
 			for (var i = 0; i < colors.length; i++) {
 				var position = POSITIONS[i];
 				if (colors[i] === 'assassin') {
-					ctx.drawImage(imgAssassin, position.x, position.y, 80, 76);
+					ctx.drawImage(imgAssassin, position.x, position.y, 94, 90);
 				}
 			}
 		};
